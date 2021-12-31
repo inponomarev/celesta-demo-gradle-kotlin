@@ -13,7 +13,6 @@ class ServerRunner(private val project: Project) {
                 "-jar",
                 "${project.projectDir}/build/libs/${project.rootProject.name}.jar"
             )
-            .inheritIO()
         val process = builder.start()
         val reader = BufferedReader(InputStreamReader(process.inputStream))
         var line: String?

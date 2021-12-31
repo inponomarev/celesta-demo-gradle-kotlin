@@ -31,12 +31,5 @@ open class DemoDataInitializer {
             tryInsert()
         }
         println("Demo data initialization complete.")
-
-        ItemOrdersCursor(ctx).apply {
-            tryFirst()
-            println("----")
-            println(orderedQuantity)
-            println("----")
-        }
     }
 }
