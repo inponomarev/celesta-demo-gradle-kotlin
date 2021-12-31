@@ -1,3 +1,6 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
 plugins {
     kotlin("jvm") version "1.6.0"
     kotlin("plugin.spring") version "1.6.0"
@@ -60,19 +63,13 @@ tasks.withType<Test> {
 }
 
 val integrationTest = tasks.register<Test>("integrationTest") {
-    /*lateinit var process: Process
-    doFirst {
-        process = ServerRunner(project).run()
-        println("Application started, pid=${process.pid()}")
-    }*/
     useJUnitPlatform {
         includeTags("integration")
+        testLogging {
+            events = setOf(TestLogEvent.FAILED, TestLogEvent.STANDARD_OUT, TestLogEvent.STANDARD_ERROR)
+            exceptionFormat = TestExceptionFormat.FULL
+        }
     }
-    //  ignoreFailures = true
-    /*doLast {
-        process.destroy()
-        println("Application stopped")
-    }*/
 }.get()
 
 val runIntegrationTest = task("runIntegrationTest") {
