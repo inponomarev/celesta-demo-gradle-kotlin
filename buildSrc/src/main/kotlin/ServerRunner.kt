@@ -22,7 +22,7 @@ class ServerRunner(private val project: Project) {
                 break
             }
             println(line)
-        } while (!line!!.contains("initialization complete"))
+        } while (!line!!.contains("Application is ready."))
         return process
     }
 }

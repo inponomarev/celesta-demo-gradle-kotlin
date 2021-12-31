@@ -15,5 +15,6 @@ open class AppListener(
         if (appSettings.initdemodata == true) {
             demoDataInitializer.initData(SystemCallContext())
         }
+        println("Application is ready.")
     }
 }
