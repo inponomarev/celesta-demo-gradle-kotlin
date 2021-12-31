@@ -1,0 +1,40 @@
+<!DOCTYPE configuration>
+
+<configuration>
+    <contextName>test</contextName>
+    <jmxConfigurator/>
+
+    <if condition="!&quot;${GELF_HOST}&quot;.endsWith(&quot;_IS_UNDEFINED&quot;)">
+        <then>
+            <appender name="gelf" class="biz.paluch.logging.gelf.logback.GelfLogbackAppender">
+                <host>${GELF_HOST}</host> <!--tcp:localhost-->
+                <port>${GELF_PORT}</port> <!--8888-->
+                <version>1.1</version>
+                <facility>celesta-demo-2-app</facility>
+                <extractStackTrace>true</extractStackTrace>
+                <filterStackTrace>true</filterStackTrace>
+                <mdcProfiling>true</mdcProfiling>
+                <timestampPattern>yyyy-MM-dd HH:mm:ss,SSS</timestampPattern>
+                <maximumMessageSize>8192</maximumMessageSize>
+
+                <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+                    <level>INFO</level>
+                </filter>
+            </appender>
+        </then>
+    </if>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="root" level="INFO">
+        <if condition="!&quot;${GELF_HOST}&quot;.endsWith(&quot;_IS_UNDEFINED&quot;)">
+            <then>
+                <appender-ref ref="gelf"/>
+            </then>
+        </if>
+        <appender-ref ref="stdout"/>
+    </logger>
+</configuration>

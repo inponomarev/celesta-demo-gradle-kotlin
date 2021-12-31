@@ -1,0 +1,7 @@
+celesta:
+  h2:
+    inMemory: true
+server:
+  port: 8088
+celestademo:
+  initdemodata: true

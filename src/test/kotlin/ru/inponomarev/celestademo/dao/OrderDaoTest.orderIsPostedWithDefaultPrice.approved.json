@@ -1,0 +1,8 @@
+{
+  "id": 1,
+  "customerId": 1,
+  "itemId": "12345",
+  "quantity": 100,
+  "price": 42,
+  "amount": 4200
+}
