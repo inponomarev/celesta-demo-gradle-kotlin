@@ -14,10 +14,10 @@ repositories {
 
 dependencies {
     implementation("org.json:json:20211205")
-    implementation("ru.curs:celesta-maven-plugin:7.4.11")
-    implementation("org.springframework.boot:spring-boot-starter-web:2.6.1")
+    implementation("ru.curs:celesta-maven-plugin:7.4.15")
+    implementation("ru.curs:celesta-system-services:7.4.15")
     implementation("ru.curs:spring-boot-starter-celesta:2.1.53")
-    implementation("ru.curs:celesta-system-services:7.4.11")
+    implementation("org.springframework.boot:spring-boot-starter-web:2.6.1")
     implementation("org.projectlombok:lombok:1.18.22")
     implementation("com.h2database:h2:1.4.200")
     implementation("org.postgresql:postgresql:42.3.1")
@@ -35,7 +35,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test:2.6.1")
     testImplementation("org.assertj:assertj-core:3.21.0")
     testImplementation("com.squareup.retrofit2:converter-scalars:2.9.0")
-    testImplementation("ru.curs:celesta-unit:7.4.11")
+    testImplementation("ru.curs:celesta-unit:7.4.15")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
     testImplementation("com.github.tomakehurst:wiremock-jre8:2.32.0")
     testImplementation("com.approvaltests:approvaltests:12.3.2")
